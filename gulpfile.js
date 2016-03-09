@@ -21,10 +21,23 @@ var sourcec = 'src/sass/**/*.scss',
     },
     autoprefixerOptions = {
       browsers: ['last 2 versions', '> 5%', 'Firefox ESR']
-    };
+    },
+    sassdocopt = {
+    verbose: true,
+    display: {
+      access: ['public', 'private'],
+      alias: true,
+      watermark: true,
+    },
+    groups: {
+      'undefined': 'Ungrouped',
+      foo: 'Foo group',
+      bar: 'Bar group',
+    },
+  };
 
 // default task
-gulp.task('default', ['sass', 'sass:watch' /*, possible other tasks... */]);
+gulp.task('default', ['sass', 'sass:watch']);
 // sass
 
 gulp.task('sass', function () {
@@ -35,7 +48,7 @@ gulp.task('sass', function () {
     //.pipe(sourcemaps.write(dist + 'maps/'))
     .pipe(autoprefixer(autoprefixerOptions))
     .pipe(gulp.dest(dist + 'css/'))
-    .pipe(sassdoc())
+    .pipe(sassdoc(sassdocopt))
     // Release the pressure back and trigger flowing mode (drain)
     // See: http://sassdoc.com/gulp/#drain-event
     .resume();

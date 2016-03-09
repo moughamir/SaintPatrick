@@ -1,3 +1,13 @@
+<FilesMatch "\.(html|js|css)$">
+FileETag None
+  <ifModule mod_headers.c>
+    AddDefaultCharset UTF-8
+    DefaultLanguage fr-FR
+    Header set Content-Encoding gzip
+    Header append Vary: Accept-Encoding
+  </ifModule>
+</FilesMatch>
+
 AddOutputFilterByType DEFLATE text/plain
 AddOutputFilterByType DEFLATE text/html
 AddOutputFilterByType DEFLATE text/xml

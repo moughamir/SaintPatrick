@@ -11,3 +11,8 @@ $url: web-fonts-url("Lobster", ("Open Sans": ("400", "400 italic", "600", "700")
 
 /// Importing normalizer
 @import "mixins/normalize";
+
+
+img[src*="card.item"]{
+  visibility: hidden;
+}

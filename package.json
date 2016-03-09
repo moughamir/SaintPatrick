@@ -1,28 +1,39 @@
 {
-    "title": "Saint Patrick Landing page",
-    "name": "SaintPatrick",
-    "version": "1.1.0",
-    "description": "Saint Patrick 2016 landing page",
-    "author": "Mohamed Moughamir <moughamir@gmail.com>",
-    "homepage": "saintpatrick.github.io",
-    "main": "gulpfile.js",
-    "scripts": {
-        "start": "gulp",
-        "deploy": "git push"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/moughamir/SaintPatrick"
-    },
-    "bugs": {
-        "url": "https://github.com/moughamir/SaintPatrick/issues"
-    },
-    "keywords": [
-        "landing page",
-        "gulp",
-        "sass",
-        "angularjs",
-        "jQuery"
-    ],
-    "license": "MIT"
+  "title": "Saint Patrick Landing",
+  "name": "SaintPatrick",
+  "version": "1.1.0",
+  "description": "Saint Patrick 2016 landing page",
+  "author": "Mohamed Moughamir <moughamir@gmail.com>",
+  "homepage": "http://moughamir.github.io/SaintPatrick/",
+  "main": "gulpfile.js",
+  "scripts": {
+    "start": "gulp",
+    "deploy": "git push"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/moughamir/SaintPatrick"
+  },
+  "bugs": {
+    "url": "https://github.com/moughamir/SaintPatrick/issues"
+  },
+  "keywords": [
+    "landing page",
+    "gulp",
+    "sass",
+    "angularjs",
+    "jQuery"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "gulp": "~3.9.1",
+    "gulp-autoprefixer": "~3.1.0",
+    "gulp-minify": "~0.0.5",
+    "gulp-ngmin": "~0.3.0",
+    "gulp-sass": "~2.2.0",
+    "gulp-sourcemaps": "~1.6.0",
+    "gulp-watch": "~4.3.5",
+    "sassdoc": "~2.1.20"
+  },
+  "devDependencies": {}
 }

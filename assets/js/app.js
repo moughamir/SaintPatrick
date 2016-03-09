@@ -155,9 +155,9 @@ app.controller("CardController", function($scope, $timeout) {
     $scope.check = function(card) {
             if (currentSessionOpen && previousCard != card && previousCard.item == card.item && !card.isFaceUp) {
                 card.isFaceUp = true;
-			          previousCard = null;
-          			currentSessionOpen = false;
-          			numPairs++;
+                previousCard = null;
+                currentSessionOpen = false;
+                numPairs++;
             } else if (currentSessionOpen && previousCard != card && previousCard.item != card.item && !card.isFaceUp) {
                 $scope.isGuarding = true;
                 card.isFaceUp = true;
