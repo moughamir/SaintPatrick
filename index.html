@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html ng-app="myAstro" prefix="og: http://ogp.me/ns#" lang="fr_FR" ng-strict-di>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <title>Saint Patrick  &#x1F340;</title>
+    <link href='https://fonts.googleapis.com/css?family=Lobster|Open+Sans:400,400italic,600,700|Fjalla+One|Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link rel="prefetch stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" href="assets/images/favicon.png">
+<link rel="canonical" href="http://umkk60fa4011.moughamir.koding.io/SaintPatrick/" >
+
+
+    <meta property="og:title" content="Saint Patrick" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://umkk60fa4011.moughamir.koding.io/SaintPatrick/" />
+    <meta property="og:image" content="http://umkk60fa4011.moughamir.koding.io/SaintPatrick/SaintPatrick.png" />
+    <meta property="og:description" content="vite !!! recevez votre étude personnalisée. Allez-vous avoir de la chance en 2016 ?" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="Saint Patrick" />
+    <meta property="fb:app_id" content="1276526482364681" />
+</head>
+
+<body>
+    <header class="site--header" role="banner">
+        <div class="container">
+            <img src="assets/images/My-ASTRO.svg" class="logo" alt="My Astro logo">
+            <h1 class="site-name">Saint Patrick</h1>
+        </div>
+    </header>
+    <main role="main">
+        <section class="main-section">
+            <article class="leJeu">
+                <header class="article--header">
+                    <h1 class="article--headline">Jour de chance, faites le jeu :</h1>
+                    <h2 class="article--subtitle">Cliquez sur les cartes, et trouvez la paire...</h2>
+                </header>
+                <div class="cntr" ng-controller="CardController">
+                    <div class="timer" ng-class="{critical:isCritical}">
+                        {{timeLimit | date: 'm:ss'}}
+                    </div>
+                    <table class="table-top">
+                        <tr ng-repeat="row in deck.rows">
+                            <td ng-repeat="card in row.cards">
+                                <div class="card_container {{!card.isFaceUp ? '' : 'flip'}}" ng-click="isGuarding || check(card)">
+                                    <div class="card shadow">
+                                        <div class="front face"></div>
+                                        <div class="back face text-center pagination-center">
+                                            <img class="face--image" src="assets/images/card/{{card.item}}.svg" alt="{{card.item}}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="startbtn">
+                        <button type="button" class="btn btn-default btn-lg" ng-disabled="inGame == true" ng-click="start()">Start</button>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <header class="article--header">
+                    <h1 class="article--headline small">Remplissez vite le formulaire pour<br/>recevoir votre étude personnalisée !</h1>
+                </header>
+                <form class="astro-form" action="index_submit" method="post" accept-charset="utf-8" role="form" novalidate>
+                    <div class="container-90">
+                        <header class="form--header">
+                            <h1 class="form--title">vite !!! recevez<br>votre étude personnalisée</h1>
+                            <hr>
+                            <h2 class="form--subtitle">Allez-vous avoir de la chance en 2016 ?</h2>
+                        </header>
+                        <div class="form-content">
+                            <div class="radio-grp">
+                                <div class="radio">
+                                    <label for="femme"><img src="assets/images/icons/female.svg" alt=""> Femme</label>
+                                    <input type="radio" name="femme" value="femme" ng-model="user.gender" />
+                                </div>
+                                <div class="radio">
+                                    <label for="homme"><img src="assets/images/icons/male.svg" alt="">Homme</label>
+                                    <input type="radio" name="homme" value="homme" ng-model="user.gender" />
+                                </div>
+                            </div>
+                            <div class="bday">
+                                <label for="bday">Née le :</label>
+                                <select name="jour" id="jour">
+                                    <option value="na">Jour</option>
+                                </select>
+                                <select id="mois" name="mois" onChange="changeDate(this.options[selectedIndex].value);">
+                                    <option value="na">Mois</option>
+                                    <option value="1">January</option>
+                                    <option value="2">February</option>
+                                    <option value="3">March</option>
+                                    <option value="4">April</option>
+                                    <option value="5">May</option>
+                                    <option value="6">June</option>
+                                    <option value="7">July</option>
+                                    <option value="8">August</option>
+                                    <option value="9">September</option>
+                                    <option value="10">October</option>
+                                    <option value="11">November</option>
+                                    <option value="12">December</option>
+                                </select>
+                                <select name="year" id="year">
+                                    <option value="na">Année</option>
+                                </select>
+                            </div>
+                            <label for="name"></label>
+                            <input type="text" name="name" value="" placeholder="Mon prénom">
+                            <label for="signe"></label>
+                            <select name="signe" placeholder="Mon sign astrologique">
+                                <option value="">Mon sign astrologique</option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                            </select>
+                            <label for="email"></label>
+                            <input type="email" name="email" value="" placeholder="Mon Adresse email" ng-model="user.email">
+                            <div class="pays">
+                                <label for="pays">Votre pays</label>
+                                <select name="pay" tabindex="6" class="selmenu">
+                                    <option value="france">France métropolitaine</option>
+                                    <option value="usa">USA</option>
+                                    <option value="maroc">Maroc</option>
+                                    <option value="uae">UAE</option>
+                                    <option value="another">UK</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <input class="form--btn" type="submit" name="descover" value="découvrir">
+                </form>
+            </article>
+        </section>
+        <article class="center-ner">
+            <h3>en cadeau votre étude personnalisée</h3>
+        </article>
+        <article class="study">
+            <h1 class="article--title">La chance of Lorem Ipsum Study.</h1>
+            <p class="article--content">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam massa nisl quis neque. Suspendisse in orci enim.
+            </p>
+        </article>
+    </main>
+    <footer>
+        <div class="reassure">
+            <ul>
+                <li>
+                    <div class="elem">
+                        <img class="elem-icon" src="assets/images/icons/star.svg" alt="">
+                        <p>Voyants sérieux reconnus
+                            <br/>pour leur savoir-faire</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="elem">
+                        <img class="elem-icon" src="assets/images/icons/luck.svg" alt="">
+                        <p>Consultations 100%
+                            <br/>discrètes &amp; anonymes</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="elem">
+                        <img class="elem-icon" src="assets/images/icons/chat.svg" alt="">
+                        <p>Interprétation
+                            <br/>immédiate</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="elem">
+                        <img class="elem-icon" src="assets/images/icons/trophy.svg" alt="">
+                        <p>My Astro leader
+                            <br/>depuis 2007</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="elem">
+                        <img class="elem-icon" src="assets/images/icons/secure.svg" alt="">
+                        <p>Paiement
+                            <br/>sécurisé par CB</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="container">
+            <p class="attribute">Copyright &copy 2016 | My Astro</p>
+            <div
+  class="fb-like"
+  data-share="true"
+  data-width="450"
+  data-show-faces="true">
+</div>
+        </div>
+    </footer>
+    <div ng-controller="MainCtrl" class="container">
+
+    <modal  visible="showModal">
+
+   <form class="astro-form" action="index_submit" method="post" accept-charset="utf-8" role="form" novalidate>
+                    <div class="container-90">
+                        <header class="form--header">
+                            <h1 class="form--title">vite !!! recevez<br>votre étude personnalisée</h1>
+                            <hr>
+                            <h2 class="form--subtitle">Allez-vous avoir de la chance en 2016 ?</h2>
+                        </header>
+                        <div class="form-content">
+                            <div class="radio-grp">
+                                <div class="radio">
+                                    <label for="femme"><img src="assets/images/icons/female.svg" alt=""> Femme</label>
+                                    <input type="radio" name="femme" value="femme" ng-model="user.gender" />
+                                </div>
+                                <div class="radio">
+                                    <label for="homme"><img src="assets/images/icons/male.svg" alt="">Homme</label>
+                                    <input type="radio" name="homme" value="homme" ng-model="user.gender" />
+                                </div>
+                            </div>
+                            <div class="bday">
+                                <label for="bday">Née le :</label>
+                                <select name="jour" id="jour">
+                                    <option value="na">Jour</option>
+                                </select>
+                                <select id="mois" name="mois" onChange="changeDate(this.options[selectedIndex].value);">
+                                    <option value="na">Mois</option>
+                                    <option value="1">January</option>
+                                    <option value="2">February</option>
+                                    <option value="3">March</option>
+                                    <option value="4">April</option>
+                                    <option value="5">May</option>
+                                    <option value="6">June</option>
+                                    <option value="7">July</option>
+                                    <option value="8">August</option>
+                                    <option value="9">September</option>
+                                    <option value="10">October</option>
+                                    <option value="11">November</option>
+                                    <option value="12">December</option>
+                                </select>
+                                <select name="year" id="year">
+                                    <option value="na">Année</option>
+                                </select>
+                            </div>
+                            <label for="name"></label>
+                            <input type="text" name="name" value="" placeholder="Mon prénom">
+                            <label for="signe"></label>
+                            <select name="signe" placeholder="Mon sign astrologique">
+                                <option value="">Mon sign astrologique</option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                            </select>
+                            <label for="email"></label>
+                            <input type="email" name="email" value="" placeholder="Mon Adresse email" ng-model="user.email">
+                            <div class="pays">
+                                <label for="pays">Votre pays</label>
+                                <select name="pay" tabindex="6" class="selmenu">
+                                    <option value="france">France métropolitaine</option>
+                                    <option value="usa">USA</option>
+                                    <option value="maroc">Maroc</option>
+                                    <option value="uae">UAE</option>
+                                    <option value="another">UK</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <input class="form--btn" type="submit" name="descover" value="découvrir">
+                </form>
+ </modal>
+
+</div>
+
+
+    <script rel="prefetch" type="text/javascript" charset="utf-8" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script rel="prefetch" type="text/javascript" charset="utf-8" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.min.js"></script>
+    <script rel="prefetch" type="text/javascript" charset="utf-8" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-animate.min.js"></script>
+<script rel="prefetch" type="text/javascript" charset="utf-8" src="assets/js/bootstrap.min.js"></script>
+<script rel="prefetch" type="text/javascript" charset="utf-8" src="assets/js/app.min.js"></script>
+</body>
+
+</html>
