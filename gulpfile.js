@@ -13,7 +13,7 @@ var gulp = require('gulp'),
 
 // path and options
 var sourcec = 'src/sass/**/*.scss',
-    sourcej = 'src/js/**/*.js',
+    sourcej = 'src/js/',
     dist = "assets/",
     sassOptions = {
       errLogToConsole: true,
@@ -37,7 +37,13 @@ var sourcec = 'src/sass/**/*.scss',
   };
 
 // default task
-gulp.task('default', ['sass', 'sass:watch']);
+gulp.task('default', function () {
+  gulp.watch(sourcec, ['sass'])
+  .on('change', function(event) {
+      console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
+  });
+});
+
 // sass
 
 gulp.task('sass', function () {
@@ -47,48 +53,35 @@ gulp.task('sass', function () {
     .pipe(sass.sync(sassOptions).on('error', sass.logError))
     //.pipe(sourcemaps.write(dist + 'maps/'))
     .pipe(autoprefixer(autoprefixerOptions))
-    .pipe(gulp.dest(dist + 'css/'))
+    .pipe(gulp.dest(dist + 'css/'));
+});
+
+
+
+// sass doc
+
+gulp.task('sassdoc', function () {
+  return gulp
+    .src(sourcec)
     .pipe(sassdoc(sassdocopt))
     // Release the pressure back and trigger flowing mode (drain)
     // See: http://sassdoc.com/gulp/#drain-event
     .resume();
 });
 
-gulp.task('sass:watch', function () {
-  gulp.watch(sourcec, ['sass'])
-  .on('change', function(event) {
-      console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
-  });
-});
-
-
 //ngmin
-gulp.task('default', function () {
-	return gulp.src('src/app.js')
+gulp.task('ngmin', function () {
+	return gulp.src(sourcej + 'app.js')
 		.pipe(ngmin({dynamic: true}))
 		.pipe(gulp.dest('assets/js/'));
-});
-//watch
-gulp.task('stream', function () {
-    return gulp.src('css/**/*.css')
-        .pipe(watch('css/**/*.css'))
-        .pipe(gulp.dest('build'));
-});
-
-gulp.task('callback', function (cb) {
-    watch('css/**/*.css', function () {
-        gulp.src('css/**/*.css')
-            .pipe(watch('css/**/*.css'))
-            .on('end', cb);
-    });
 });
 
 // compress
 gulp.task('compress', function() {
-  gulp.src('lib/*.js')
+  gulp.src(sourcej + '*.js')
     .pipe(minify({
         exclude: ['tasks'],
-        ignoreFiles: ['.combo.js', '-min.js']
+        ignoreFiles: ['.combo.js', '-ngmin.js']
     }))
-    .pipe(gulp.dest('dist'))
+    .pipe(gulp.dest(dist + "js"))
 });
