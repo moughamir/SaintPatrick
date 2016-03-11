@@ -10,6 +10,7 @@
     <title>Saint Patrick &#x1F340;</title>
     <link rel="icon" href="assets/images/favicon.png">
     <link rel="canonical" href="http://umkk60fa4011.moughamir.koding.io/SaintPatrick/">
+    <link rel="amphtml" href="ampver.html">
     <meta property="og:title" content="Saint Patrick" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="http://umkk60fa4011.moughamir.koding.io/SaintPatrick/" />
@@ -61,7 +62,7 @@
                         </tr>
                     </table>
                     <div class="startbtn" ng-show="inGame == false">
-                        <button type="button" class="btn btn-default btn-lg" ng-disabled="inGame == true" ng-click="start()">Start</button>
+                        <button type="button" class="btn btn-default btn-lg" ng-disabled="inGame == true" ng-click="start()">Démarrer</button>
                     </div>
                 </div>
             </article>
@@ -88,17 +89,23 @@
                             <input type="hidden" name="cguv" value="1" />
                             <!-- ############################################### -->
                             <!-- Genre -->
-                            <label class="" for="gender-f">
-                                <img src="assets/images/icons/female.svgz" alt="♀"> Femme
+                            <div class="Genre">
+                            <label class="gender-l" for="gender-f">
+                                <img src="assets/images/icons/female.svgz" alt="♀"> <span>Femme</span>
                                 <input type="radio" name="sexe" id="gender-f" value="F" required />
                             </label>
-                            <label class="" for="gender-h">
-                                <img src="assets/images/icons/male.svgz" alt="♂"> Homme
+                            <label class="gender-l" for="gender-h">
+                                <img src="assets/images/icons/male.svgz" alt="♂"> <span>Homme</span>
                                 <input type="radio" name="sexe" id="gender-h" value="M" />
                             </label>
+                            </div>
+
                             <!-- Date de naissance -->
-                            <select name="jour" id="jour">
-                                <option value="na" disabled selected>Jour</option>
+                            <div class="Date">
+                            <label for="ddn">Née le</label>
+                              <div class="ddn">
+                                <select name="jour" id="jour">
+                                    <option value="na" disabled selected>Jour</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -131,7 +138,7 @@
                                 <option value="30">30</option>
                                 <option value="31">31</option>
                             </select>
-                            <select name="mois" id="mois">
+                                <select name="mois" id="mois">
                                 <option value="na" disabled selected>Mois</option>
                                 <option value="01">Janvier</option>
                                 <option value="02">Février</option>
@@ -146,7 +153,7 @@
                                 <option value="11">Novembre</option>
                                 <option value="12">Décembre</option>
                             </select>
-                            <select name="annee" id="year">
+                                <select name="annee" id="year">
                                 <option value="na" disabled selected>Année</option>
                                 <option value="1944">1944</option>
                                 <option value="1945">1945</option>
@@ -204,6 +211,8 @@
                                 <option value="1997">1997</option>
                                 <option value="1998">1998</option>
                             </select>
+                              </div>
+                            </div>
                             <!-- Prénom -->
                             <input name="prenom" id="prenom" type="text" class="" placeholder="Mon prénom" required />
                             <!-- Signe Astrologique-->
@@ -225,9 +234,10 @@
                             <!-- Email -->
                             <input name="email" id="email" type="email" class="" placeholder="Mon adresse email" required />
                             <!-- Pays -->
-                            <label for="pays">Votre pays</label>
-                            <select name="pays" id="pays" required>
-                                <option value="BE">Belgique</option>
+                            <div class="pays">
+                              <label for="pays">Votre pays</label>
+                              <select name="pays" id="pays" required>
+                                  <option value="BE">Belgique</option>
                                 <option value="CA">Canada</option>
                                 <option value="LU">Luxembourg</option>
                                 <option value="CH">Suisse</option>
@@ -247,6 +257,7 @@
                                 </optgroup>
                                 <option value="ZZ">Autre</option>
                             </select>
+                            </div>
                         </article>
                     </div>
                     <!-- ### BOUTON SUBMIT -->
@@ -254,6 +265,7 @@
                 </form>
             </article>
         </section>
+        <section class="two">
         <article class="center-ner">
             <h3>en cadeau votre étude personnalisée</h3>
         </article>
@@ -263,6 +275,7 @@
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam massa nisl quis neque. Suspendisse in orci enim.
             </p>
         </article>
+        </section>
     </main>
     <footer>
         <div class="reassure">

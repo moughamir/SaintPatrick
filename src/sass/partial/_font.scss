@@ -16,15 +16,16 @@
   font-weight: 400;
   src: local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com/s/opensans/v13/cJZKeOuBrn4kERxqtaUH3aCWcynf_cDxXwCLxiixG1c.ttf) format('truetype');
 }
-@font-face {
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-weight: 600;
-  src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(https://fonts.gstatic.com/s/opensans/v13/MTP_ySUJH_bn48VBG8sNSonF5uFdDttMLvmWuJdhhgs.ttf) format('truetype');
-}
+
 @font-face {
   font-family: 'Oxygen';
   font-style: normal;
   font-weight: 400;
-  src: local('Oxygen'), local('Oxygen-Regular'), url(https://fonts.gstatic.com/s/oxygen/v5/f8OBjBbevvywgbyJOxlO7Q.ttf) format('truetype');
+  src: local('Oxygen'), local('Oxygen-Regular'), url(https://fonts.gstatic.com/s/oxygen/v5/78wGxsHfFBzG7bRkpfRnCQ.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Oxygen';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Oxygen Bold'), local('Oxygen-Bold'), url(https://fonts.gstatic.com/s/oxygen/v5/yVHpdQrmTj9Kax1tmFSx2ltXRa8TVwTICgirnJhmVJw.woff2) format('woff2');
 }

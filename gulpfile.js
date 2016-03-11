@@ -8,7 +8,8 @@ var gulp = require('gulp'),
     minify = require('gulp-minify'),
     sourcemaps = require('gulp-sourcemaps'),
     autoprefixer = require('gulp-autoprefixer'),
-    sassdoc = require('sassdoc');
+    sassdoc = require('sassdoc'),
+    htmlmin = require('gulp-htmlmin');
 
 
 // path and options
@@ -84,4 +85,11 @@ gulp.task('compress', function() {
         ignoreFiles: ['.combo.js', '-ngmin.js']
     }))
     .pipe(gulp.dest(dist + "js"))
+});
+
+
+gulp.task('minify', function() {
+  return gulp.src('*.html')
+    .pipe(htmlmin({collapseWhitespace: true}))
+    .pipe(gulp.dest('dist'))
 });

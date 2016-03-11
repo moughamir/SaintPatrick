@@ -58,6 +58,12 @@
   background-clip: padding-box;
   // Remove focus outline from opened modal
   outline: 0;
+height: 567px !important;
+display: flex;
+justify-content: center;
+align-content: center;
+align-items: center;
+border: 6px solid #EAB210;
 
 }
 
@@ -97,12 +103,13 @@
 // Where all modal content resides (sibling of .modal-header and .modal-footer)
 .modal-body {
   position: relative;
-  padding: $modal-inner-padding;
-  display: flex !important;
-  justify-content: space-around !important;
-  flex-direction: row !important;
-  height: 567px !important;
-  align-items: center !important;
+padding: 3em 0.3em;
+display: flex !important;
+justify-content: space-around !important;
+flex-direction: row !important;
+align-items: center !important;
+border: 8px dotted #EAB210;
+width: 90%;
 }
 
 // Footer (for actions)

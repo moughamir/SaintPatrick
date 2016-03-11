@@ -12,7 +12,7 @@
 //@import url($url);
 @import 'partial/font';
 html {
-    background: $modal-green url('../images/background.png') no-repeat;
+    background: url("../images/background.png") no-repeat scroll 0% 0% / 100% auto, transparent linear-gradient(to right, rgb(34, 99, 37) 0%, rgb(147, 188, 69) 50%, rgb(102, 153, 54) 100%) repeat scroll 0% 0%;
     min-height: 100%;
     background-size: 100%;
 }
@@ -38,14 +38,14 @@ main {
 
 /// header
 .site--header {
-    height: 80px;
     width: 100%;
     top: 0;
     z-index: 5;
-    border: 1px rgb( 179, 147, 14) solid;
-    background: rgb(238, 201, 4);
-    background-image: linear-gradient( 0deg, rgb(230, 165, 19) 0%, rgb(238, 201, 4) 50%, rgb(230, 165, 19) 100%);
-    box-shadow: 0px 3px 5px 0px #212121;
+    height: 81px;
+background-color: #2a2a2a;
+background-image: linear-gradient(to top, #e6a513 0%, #eec904 55%, #dfb316 100%);
+border: 1px solid #b3930e;
+box-shadow: -0.3px 5px 6px rgba(53, 43, 1, 0.65), inset 0 1px 1px white;
 }
 
 .logo {
@@ -72,12 +72,11 @@ main {
     justify-content: center;
     align-items: center;
     h3 {
-        font-size: 30.166px;
-        font-family: "Fjalla One";
-        color: rgb( 0, 104, 50);
-        text-transform: uppercase;
-        text-align: center;
-        -moz-transform: matrix( 0.85651383035728, 0, 0, 0.86189564234978, 0, 0);
+        font-family: FjallaOne;
+font-size: 26px;
+font-weight: 500;
+text-transform: uppercase;
+color: $card-primary;
     }
 }
 .study {
@@ -85,19 +84,20 @@ main {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    margin-top: 45px;
+    margin-top: 1em;
 }.article--title {
-    font-size: 26px;
-    font-family: "Fjalla One";
-    color: rgb( 255, 255, 255);
-    text-align: center;
-    margin: 15px 0;
+color: white;
+font-family: FjallaOne;
+font-size: 26px;
+font-weight: 500;
+text-align: center;
 }.article--content {
-    font-size: 14px;
-    font-family: "Oxygen";
-    color: rgb( 255, 255, 255);
-    text-align: justify;
-    width: 670px;
+    width: 669px;
+height: 132px;
+color: white;
+font-family: Oxygen;
+font-size: 14px;
+font-weight: 400;;
     margin: 15px auto;
 }.article--headline {
     font-size: 32px;
@@ -116,11 +116,14 @@ main {
 }
 /// main section
 .main-section {
-    display: flex;
-    justify-content: space-between;
-    margin: 20px 0;
+  margin: 20px 0px;
+display: flex;
+justify-content: center;
+align-items: center;
+
     article{
-      width: 90%;
+          margin-left: 28px;
+margin-right: 28px;
     }
 }
 /// The Game
@@ -131,6 +134,8 @@ main {
   line-height: 100px;
   z-index: 1;
   perspective: 1000;
+}td.ng-scope {
+    padding: 8px;
 }
 .card {
   background: $card-primary url('../images/Saint-Patrick.svgz') no-repeat 50% 45%;;
@@ -200,10 +205,15 @@ table {
     transform: translate(-50%, -50%);
 }
 .btn.btn-default.btn-lg {
-    width: 200px;
-    height: 60px;
-    background: #538a34;
-    border: none;
+   width: 200px;
+height: 60px;
+background: $modal-green none repeat scroll 0% 0%;
+color: wheat;
+font-family: Oxygen;
+font-size: 2rem;
+border-radius: 5px;
+border: 1px solid $card-border;
+box-shadow: $card-shadow;
 }
 
 .cntr {
@@ -219,6 +229,7 @@ footer {
     bottom: 0px;
     width: 100%;
     height: 50px;
+    margin-top: 4em;
     .attribute {
         margin: 0 auto;
         color: #fff;
@@ -272,10 +283,10 @@ footer {
     align-items: center;
     line-height: 1.3;
     p {
-        font-size: 13.25px;
-        font-family: "Oxygen";
-        color: rgb( 0, 104, 50);
-        text-align: left;
+        font-family: Oxygen;
+font-size: 13px;
+font-weight: 700;
+color: $card-primary;
     }
 }
 
@@ -288,14 +299,12 @@ footer {
 /// FORM
 .astro-form {
     background-color: $card-primary;
-    height: 420px;
+    width: 381px; height: 416px;
     z-index: 48;
     position: relative;
 }
 .form--header {
     top: 15px;
-    position: absolute;
-    width: 100%;
     margin-bottom: 20px;
 }
 hr{
@@ -331,7 +340,7 @@ hr{
     border-style: solid;
     border-width: 1px;
     border-color: rgb( 179, 147, 14);
-    background-image: linear-gradient( 0deg, rgb(230, 165, 19) 0%, rgb(234, 183, 12) 7%, rgb(238, 201, 4) 55%, rgb(223, 179, 22) 100%);
+    background-image: linear-gradient(to top, #e6a513 0%, #eec904 55%, #dfb316 100%);
     box-shadow: -0.349px 4.988px 6px 0px rgb( 53, 43, 1);
     width: 263px;
     height: 50px;
@@ -340,22 +349,235 @@ hr{
     bottom: -25px;
     left: 50%;
     transform: translateX(-50%);
+    &:hover{
+      background-image: linear-gradient(to top, #eec904 0%, #eec904 15%, #e6a513 48%, #eec904 85%, #eec904 100%);
+    }
 }
 .container-90 {
-    width: 90%;
-    margin: 0 auto;
+    margin: 0px auto;
+height: 100%;
+width: 90%;
+align-items: stretch;
+position: relative;
+display: flex;
+flex-direction: column;
+}
+.form-content {
+    margin: 0px !important;
     display: flex;
-     flex-direction: column;
-            align-items: stretch;
-    position: relative;
-    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    transform: translateY(-8%);
+}
+.Genre{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.Genre >label >img {
+    margin-right: 10px;
+    height: 17px;
+    width: 17px;
+}
+.Date {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+#jour {
+    width: 56px;
+    height: 24px;
+    background-color: #FFF;
+    background-image: linear-gradient(to top, #F2F2F2 0%, #FFF 50%, #FFF 100%);
+    border: 1px solid #E6E6E6;
+}
+#mois {
+    width: 111px;
+    height: 24px;
+    background-color: #FFF;
+    background-image: linear-gradient(to top, #F2F2F2 0%, #FFF 50%, #FFF 100%);
+    border: 1px solid #E6E6E6;
+}
+#year{
+  width: 80px;
+height: 24px;
+background-color: white;
+background-image: linear-gradient(to top, #f2f2f2 0%, white 50%, white 100%);
+border: 1px solid #e6e6e6;
+}
+#prenom {
+    width: 334px;
+    height: 30px;
+    background-color: #FFF;
+    border: 1px solid #CCC;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6), inset 0 1px 3px rgba(0, 0, 0, 0.3);
+    margin-top: 10px;
+}
+select {
+    width: 334px;
+    height: 30px;
+    background-color: #FFF;
+    border: 1px solid #CCC;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6), inset 0 1px 3px rgba(0, 0, 0, 0.3);
+    margin-top: 10px;
+}
+#pays{
+  width: 203px;
+  margin: 0 !important;
+}
+#email {
+    width: 334px;
+    height: 30px;
+    background-color: #FFF;
+    border: 1px solid #CCC;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6), inset 0 1px 3px rgba(0, 0, 0, 0.3);
+    margin-top: 10px;
+}
+label {
+    color: #BDBEBE;
+    font-family: Oxygen;
+    font-size: 14px;
+    font-weight: 600;
+    font-style: italic;
+}
+.gender-l {
+    text-transform: uppercase;
+    font-style: unset;
+    display: inline-flex;
+    margin: 5px 25px;
+    justify-content: center;
+  input{
+    margin: auto 10px !important;
+  }
+
+}
+.pays {
+    display: inline-flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 10px;
 }
 /// modal
 .modal-gif {
     width: 536px;
     height: 400px;
 }
-
+/// media Query
+@media (max-width: 960px) {
+    .container {
+        width: 90% !important;
+        justify-content: center;
+    }
+    main{
+        width: 100vw !important;
+    }
+    .main-section{
+        flex-direction: column;
+    }
+    .reassure{
+        width: 100%;
+        height: auto;
+    }
+    .site--header {
+    height: 58px;
+    width: 100vw;
+    border: none !important;
+}
+.logo {
+    width: 48px;
+}
+.site-name{
+  font-size: 2em;
+}
+.article--headline {
+    font-size: 1.6rem;
+}
+.article--subtitle{
+  font-size: 1.15rem;
+}
+td.ng-scope {
+    padding: 0.1px;
+}
+.card_container {
+    width: 75px;
+    height: 75px;
+    line-height: 100px;
+    z-index: 1;
+    padding: 3px;
+}
+.card {
+    background-size: 90%;
+}
+.small {
+    font-size: 1.3rem;
+}
+.astro-form{width: 100%; height: unset;}
+.container-90{width: 95%;}
+.form-content > * {
+    height: 40px !important;
+}
+#jour, #mois, #year{height: 40px;}
+#prenom, #prenom + select, #email{
+  width: 96%;
+}
+.two {
+    margin-top: 3.2333em;
+}
+.center-ner h3 {font-size: 0.95rem;text-align: center;}
+.study > .article--title{font-size: 1.3rem;}
+.article--content{width: 90%; font-size: 1rem;}
+li::before {
+    display: none;
+}
+.reassure ul li:nth-of-type(1) > .elem > .elem-icon {
+    margin: 0 !important;
+}
+.reassure ul {
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+}.elem {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    line-height: 1.3;
+    width: 100%;
+}
+.reassure ul li {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.elem p {
+    font-family: Oxygen;
+    font-size: 13px;
+    font-weight: 700;
+    color: #006832;
+    width: 80%;
+}.modal-dialog {
+    width: 100vw !important;
+    margin: 0;
+}
+.modal-content {
+    height: auto;
+}.modal-body {
+    flex-direction: column !important;
+    padding: 0;
+}.modal-gif {
+    width: 100%;
+    height: auto;
+}
+.startbtn {
+    display: block;
+    text-align: center;
+    left: 100%;
+    transform: translate(0%, 29%);
+    position: initial !important;
+}
+}
 
 /// animation
 
