@@ -2,10 +2,10 @@
     // Page %%NOM DE LA PAGE%%
 //unco    require_once(realpath('include/tools.php'));
 $NomDeLaPage = "saint-patrick-2016";
-$METHOD = affil-mini
-$DRI = http://www.myastro.fr/dri-5
-$SUPPORT = voyance
-$AFFILIATION = affilbase
+$METHOD = affil-mini;
+$DRI = "http://www.myastro.fr/dri-5";
+$SUPPORT = voyance;
+$AFFILIATION = affilbase;
 ?>
 <!DOCTYPE html>
 <html ng-app="myAstro" prefix="og: http://ogp.me/ns#" lang="fr">
